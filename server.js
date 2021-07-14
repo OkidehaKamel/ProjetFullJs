@@ -1,15 +1,15 @@
 const express = require('express')
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 require('dotenv').config()
 const PORT = process.env.PORT || 5001
 
 const app = express()
 const path=require('path')
 
-// mongoose.connect('mongodb://localhost/projet',{
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
+mongoose.connect('mongodb://localhost/projet',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 app.use(express.json())
 
