@@ -1,0 +1,7 @@
+POST http://localhost:5000/categories/new
+Content-Type: application/json
+
+{
+    "name":"Fleur",
+    "description": "https://image.flaticon.com/icons/png/128/4038/4038868.png"
+}

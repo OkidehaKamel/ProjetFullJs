@@ -3,9 +3,25 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  /* height: 40vmin; */
+  width: 10%;
   pointer-events: none;
 }
+
+.cat{
+  width: 100%;
+}
+figure img{
+  width: 30%;
+}
+.linkCat{
+  width: 20%;
+}
+
+input{
+  width: 60%!important;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

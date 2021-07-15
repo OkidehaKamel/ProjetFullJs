@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 
-const categorie = mongoose.model(
-  "Categorie",
+const categorie = 
   new mongoose.Schema({
     name: String,
-    description: String
+    image: String,
+    slug:String
+      
   })
-);
 
-module.exports = categorie;
+  
+  
+// );
+
+module.exports = mongoose.model("Categorie",categorie);
