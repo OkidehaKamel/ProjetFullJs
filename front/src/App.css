@@ -11,6 +11,9 @@
 .cat{
   width: 100%;
 }
+.catImage{
+  width: auto;
+}
 figure img{
   width: 30%;
 }
@@ -20,6 +23,13 @@ figure img{
 
 input{
   width: 60%!important;
+}
+#formListArticle input{
+  width: 80%!important;
+}
+textarea{
+  white-space: pre-wrap;
+  width: 90%!important;
 }
 
 

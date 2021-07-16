@@ -1,19 +1,20 @@
 const mongoose = require("mongoose");
-const { Article } = require("./DonneeBDD/indexAintegrer");
+// const { Article } = require("./DonneeBDD/indexAintegrer");
 
 const Articles = mongoose.model(
   "Articles",
   new mongoose.Schema({
-    titre: String,
-    auteur: String,
-    Texte: String,
-    images: [],
-    categorie: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Categorie"
-      }
-    ],
+    title: String,
+    author: String,
+    text: String,
+    categoryid: String,
+    // categorie: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Categorie"
+    //   }
+    // ],
+    slug:String  
   })
 );
 

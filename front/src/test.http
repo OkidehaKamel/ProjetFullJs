@@ -1,7 +1,10 @@
-POST http://localhost:5000/categories/new
+POST http://localhost:5000/articles/new
 Content-Type: application/json
 
 {
-    "name":"Fleur",
-    "description": "https://image.flaticon.com/icons/png/128/4038/4038868.png"
+     "title": "test titre",
+    "author": "test auteur",
+    "text": "test",
+    "category_id": "60efd83652f56cfc2cfae530",
+    "slug":"test titre"  
 }

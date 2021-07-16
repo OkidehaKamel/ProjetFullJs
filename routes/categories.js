@@ -13,10 +13,21 @@ router.get('/', (req,res)=>{
     })    
 })
 
-//get by category
+//get by category slug
 router.get('/:slug',async (req,res)=>{
     const category=await categoryModel.find({
         slug: req.params.slug       
+    })
+    if(category==null){
+        res.redirect('/')
+    }
+    
+})
+
+//get by category id
+router.get('/:id',async (req,res)=>{
+    const category=await categoryModel.find({
+        id: req.params.id       
     })
     if(category==null){
         res.redirect('/')

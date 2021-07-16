@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import slugify from 'react-slugify';
 
@@ -8,19 +8,25 @@ function CategoryForm({ elements, setElements }) {
 
     const submitCat = (e) => {
         e.preventDefault();
+
         if (inputName === '') {
             alert('Veuillez entrer un nom de catégorie')
         } else {
-            setElements([...elements, { name: inputName, image: inputImage }])
-            const recorded = {
-                name: inputName,
-                image: inputImage,
-                slug:slugify(inputName)
+            var check_category = elements.filter(element => (element.name == inputName));
+            if (check_category.length > 0) {
+                alert('Cette catégorie existe déjà')
+            }else{                
+                setElements([...elements, { name: inputName, image: inputImage }])
+                const recorded = {
+                    name: inputName,
+                    image: inputImage,
+                    slug: slugify(inputName)
+                }
+                axios.post('/categories/new', recorded)
+                    .then(response => console.log(response.data))
+                setInputName('')
+                setInputImage('')
             }
-            axios.post('/categories/new', recorded)
-                .then(response => console.log(response.data))
-            setInputName('')
-            setInputImage('')
         }
     }
 
@@ -38,7 +44,7 @@ function CategoryForm({ elements, setElements }) {
 
                 </div>
                 <div className="mb-3 d-flex col-md-2">
-                    <button type="submit" className="btn btn-primary"  onClick={submitCat} >Ajouter</button>
+                    <button type="submit" className="btn btn-primary" onClick={submitCat} >Ajouter</button>
                 </div>
             </form>
         </div>

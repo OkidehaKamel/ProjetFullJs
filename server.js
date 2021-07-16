@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const PORT = process.env.PORT || 5001
 const categoryRouter = require('./routes/categories')
+const articleRouter = require('./routes/articles')
 const app = express()
 const path=require('path')
 
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use(express.static('front/build'))
 
 app.use('/categories',categoryRouter)
+app.use('/articles',articleRouter)
 
 
 // app.get('/api/test',(req,res)=>{
