@@ -1,33 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import slugify from 'react-slugify';
 
-function ArticleForm({ category, articles, setArticles }) {
+function EditArticleForm({ category, articles, setArticles,article }) {
 
-    const [inputTitle, setInputTitle] = useState("");
-    const [inputAuthor, setInputAuthor] = useState("");
-    const [inputText, setInputText] = useState("");
+    const [inputTitle, setInputTitle] = useState(article.title);
+    const [inputAuthor, setInputAuthor] = useState(article.author);
+    const [inputText, setInputText] = useState(article.text);
+    const [version,setVersion] = useState([]);
 
 
-    const submitArticle = (e) => {
+    const submitEditArticle = (e) => {
         e.preventDefault();
-        if (inputTitle === '') {
-            alert('Veuillez entrer un titre')
-        } else {
-            setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id }])
-            const recorded = {
+      
+            // setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id }])
+            const prev_version = {
                 title: inputTitle,
                 author: inputAuthor,
                 text: inputText,
-                categoryid: category._id,
                 slug: slugify(inputTitle)
             }
-            axios.post('/articles/new', recorded)
-                .then(response => console.log(response.data))
-            setInputTitle('')
-            setInputAuthor('')
-            setInputText('')
-        }
+
+            // useEffect(() => {
+            //     // PUT request using axios inside useEffect React hook
+            //     const article = { title: 'React Hooks PUT Request Example' };
+            //     axios.put('/articles/article/'+article._id, article)
+            //         .then(response => console.log(response.data));
+            
+            // // empty dependency array means this effect will only run once (like componentDidMount in classes)
+            // }, []);
+
+            // axios.post('/articles/new', recorded)
+            //     .then(response => console.log(response.data))
+            // setInputTitle('')
+            // setInputAuthor('')
+            // setInputText('')
+      
     }
 
     return (
@@ -51,10 +59,9 @@ function ArticleForm({ category, articles, setArticles }) {
                 </div>
                 {/* <input type="text" id="catID" value={cat._id} className="form-control invisible" /> */}
                 <div className="mb-3 d-flex justify-content-center">
-                    
-                        <button type="submit" className="btn btn-primary" onClick={submitArticle} >Ajouter</button>
-                        {/* : <button type="submit" className="btn btn-primary" >Modifier</button> */}
-                    
+                   
+                        <button type="submit" className="btn btn-primary" onClick={submitEditArticle} >Modifier</button>
+                     
 
                 </div>
             </form>
@@ -63,4 +70,4 @@ function ArticleForm({ category, articles, setArticles }) {
 }
 
 
-export default ArticleForm;
+export default EditArticleForm;

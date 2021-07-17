@@ -1,30 +1,27 @@
 import logo from './logo.svg';
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import CategoriesList from './components/CategoriesList';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ArticlesListByCat from './components/ArticlesListByCat';
 import Home from './components/Home';
+import EditArticleForm from './components/EditArticleForm';
 
 
 
 function App() {
-  // const [msg, setMsg] = useState('');
   const [elements, setElements] = useState([]);
-  // const [cat, setCat] = useState('');
-
-  // const handleClick = async () => {
-  //   const data = await window.fetch('/categories')
-  //   const jsonList = await data.json();
-  //   setElements(jsonList);
-  // }
+  const [articles, setArticles] = useState([]);
   var url = window.location.href;
   var isCategoryPage = url.includes('category');
+  var isArticlePage = url.includes('article/edit');
   var slug = '';
-  if (isCategoryPage==true) {
-    var array = url.split("/");
-    slug = array.pop()
-    console.log(slug)
+  var articleToEdit = '';
+  var array = url.split("/");
+  if (isCategoryPage == true) {
+    slug = array.pop();
+  } else if (isArticlePage == true) {
+    articleToEdit = array.pop();
   }
   useEffect(() => {
     getCategory();
@@ -34,6 +31,16 @@ function App() {
     var response = await fetch('http://localhost:5000/categories/');
     var data = await response.json();
     setElements(data);
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
+
+  const getArticles = async () => {
+    var response = await fetch('http://localhost:5000/articles/');
+    var data = await response.json();
+    setArticles(data);
   };
 
 
@@ -56,9 +63,18 @@ function App() {
           </Route>
           {elements.map(category => (
             <Route path={"/category/" + category.slug} exact>
-            <ArticlesListByCat elements={elements} category={category}/>
+              <ArticlesListByCat elements={elements} category={category} />
             </Route>
           ))}
+
+          {articles.map(article => (
+            <Route path={"/article/edit/" + article._id} exact>
+              <h2>Modifier Article</h2>
+              <EditArticleForm article={article} />
+            </Route>
+          ))}
+
+
         </Switch>
       </Router>
       {/* {(slug!="")? <ArticlesListByCat elements={elements} />  : ''} */}

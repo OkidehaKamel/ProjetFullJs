@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ArticleForm from './ArticleForm';
+import Article from './Article';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // function getArticlesByCat(){
 //       fetch('http://localhost:5000/articles/')
@@ -28,14 +30,14 @@ function ArticlesListByCat({ elements, category }) {
   //     }
   //   });
   // };
-console.log(category)
+
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     getArticles();
   }, []);
 
   const getArticles = async () => {
-    var response = await fetch('/articles/'+category._id);
+    var response = await fetch('/articles/' + category._id);
     var data = await response.json();
     data = data.reverse();
     setArticles(data)
@@ -48,9 +50,11 @@ console.log(category)
         <img className="catImage" src={category.image} alt={category.name} />
       </figure>
       <div>
-        {(elements.length > 0) ?
+
+        {(articles.length > 0) ?
           articles.map(article => (
-            <p>{article.title}</p>
+            <Article article={article} />
+            // <p>{article.title}</p>
           ))
           : <p>Il n'y a pas encore d'article dans cette catégorie</p>
         }

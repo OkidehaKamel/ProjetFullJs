@@ -28,10 +28,14 @@ input{
   width: 80%!important;
 }
 textarea{
-  white-space: pre-wrap;
+  /* white-space: pre-line; */
   width: 90%!important;
 }
-
+.markdown{
+  max-height: 400px;
+  overflow-y: auto;
+  text-align: initial;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

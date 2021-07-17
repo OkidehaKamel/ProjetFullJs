@@ -8,6 +8,7 @@ const Articles = mongoose.model(
     author: String,
     text: String,
     categoryid: String,
+    prev:[],
     // categorie: [
     //   {
     //     type: mongoose.Schema.Types.ObjectId,
