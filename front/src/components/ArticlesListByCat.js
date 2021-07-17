@@ -11,27 +11,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function ArticlesListByCat({ elements, category }) {
 
-  // const [cat, setCat] = useState([]);
-
-  // var url = window.location.href
-  // var array = url.split("/");
-  // var slug = array.pop()
-
-  // useEffect(() => {
-  //   getCategory();
-  // }, []);
-
-  // const getCategory = async () => {
-  //   var response = await fetch('http://localhost:5000/categories/');
-  //   var data = await response.json();
-  //   data.forEach(element => {
-  //     if (element.slug == slug) {
-  //       setCat(element);
-  //     }
-  //   });
-  // };
-
-  const [articles, setArticles] = useState([]);
+ const [articles, setArticles] = useState([]);
   useEffect(() => {
     getArticles();
   }, []);
@@ -50,23 +30,17 @@ function ArticlesListByCat({ elements, category }) {
         <img className="catImage" src={category.image} alt={category.name} />
       </figure>
       <div>
-
         {(articles.length > 0) ?
           articles.map(article => (
             <Article article={article} />
-            // <p>{article.title}</p>
           ))
           : <p>Il n'y a pas encore d'article dans cette catégorie</p>
         }
 
         <h4>Ajouter un article</h4>
         <ArticleForm category={category} articles={articles} setArticles={setArticles} />
-
       </div>
-
-
     </div>
-
   )
 };
 

@@ -20,6 +20,10 @@ figure img{
 .linkCat{
   width: 20%;
 }
+.title{
+  background: antiquewhite;
+  padding: 5px 20px;
+}
 
 input{
   width: 60%!important;

@@ -26,20 +26,17 @@ router.get('/:categoryid', (req, res) => {
     })
 })
 
-//get articles by id
-router.get('/article/:id', (req, res) => {
-    articleModel.findById(req.params.id)
-    .then(data => {
-        if (!data)
-          res.status(404).send({ message: "Not found article with id " + req.params.id });
-        else res.json(data);
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .send({ message: "Error retrieving article with id=" + req.params.id });
-      });
-})
+// //put articles by id
+// router.put('/article/:id', (req, res) => {
+//     articleModel.updateOne(
+//         { "_id": req.params.id },
+//         {
+//             $push: {
+//                 version: prev_version
+//             }
+//         }
+//     )
+// })
 
 //add new article
 router.post('/new', (req, res) => {
@@ -48,7 +45,8 @@ router.post('/new', (req, res) => {
         author: req.body.author,
         text: req.body.text,
         categoryid: req.body.categoryid,
-        slug: req.body.slug
+        slug: req.body.slug,
+        version:req.body.version
 
     })
     articles.save()
@@ -60,10 +58,60 @@ router.post('/new', (req, res) => {
         })
 })
 
+// Update for  "mongoose": "^4.11.9",
+// router.put("/:comment_id", function(req, res){
+//     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, comment){
+//         if(err){
+//             console.log(err);
+//             res.render("edit");
+//         } else {
+//             res.redirect("/campgrounds/" + req.params.id);
+//         }
+//     });
+// });
+
 //edit article
-// router.get('/edit/:id', (req, res) => {
-//     const article= articleModel.findById(req.params.id)
-//     res.json(article);
+router.put("/edit/:id", (req, res) => {
+    let updates = req.body //we set a variable equal to the entire req.body
+    articleModel.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+            $push: {
+                version: updates
+            }
+        },
+        {new: true, useFindAndModify: false}
+        )
+      .then(data => res.json(data))
+      .catch(err => res.status(400).json("Error: " + err))
+  })
+
+//edit article
+// router.post('/edit/:id', (req, res) => {
+    
+//     const article = articleModel.updateOne({
+//         title: req.body.title,
+//         author: req.body.author,
+//         text: req.body.text,
+//         categoryid: req.body.categoryid,
+//         slug: req.body.slug
+//     },
+//     {
+//         where: {_id:req.params.id}
+//     })
+//     // .then(function(data){
+//     //     return data;
+//     // })
+//     // .catch(error =>{
+//     //     return error
+//     // })
+//     // res.json(data);
+//     .then(data => {
+//             res.json(data)
+//         })
+//         .catch(error => {
+//             res.json(error)
+//         })
 // })
 
 

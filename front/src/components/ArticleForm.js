@@ -7,6 +7,7 @@ function ArticleForm({ category, articles, setArticles }) {
     const [inputTitle, setInputTitle] = useState("");
     const [inputAuthor, setInputAuthor] = useState("");
     const [inputText, setInputText] = useState("");
+    const [version,setVersion]=useState("");
 
 
     const submitArticle = (e) => {
@@ -14,19 +15,22 @@ function ArticleForm({ category, articles, setArticles }) {
         if (inputTitle === '') {
             alert('Veuillez entrer un titre')
         } else {
-            setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id }])
+            setVersion({ title: inputTitle, author: inputAuthor, text: inputText })
+            setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id,version:version }])
             const recorded = {
                 title: inputTitle,
                 author: inputAuthor,
                 text: inputText,
                 categoryid: category._id,
-                slug: slugify(inputTitle)
+                slug: slugify(inputTitle),
+                version:{title: inputTitle,author: inputAuthor,text: inputText,slug: slugify(inputTitle)}
             }
             axios.post('/articles/new', recorded)
                 .then(response => console.log(response.data))
             setInputTitle('')
             setInputAuthor('')
             setInputText('')
+            window.location.href = "/category/"+category.name;
         }
     }
 

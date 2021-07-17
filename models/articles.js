@@ -8,7 +8,7 @@ const Articles = mongoose.model(
     author: String,
     text: String,
     categoryid: String,
-    prev:[],
+    version:[],
     // categorie: [
     //   {
     //     type: mongoose.Schema.Types.ObjectId,

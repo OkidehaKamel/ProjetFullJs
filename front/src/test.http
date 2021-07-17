@@ -2,9 +2,14 @@ POST http://localhost:5000/articles/new
 Content-Type: application/json
 
 {
-     "title": "test titre",
-    "author": "test auteur",
-    "text": "test",
-    "category_id": "60efd83652f56cfc2cfae530",
-    "slug":"test titre"  
+     "title": "test titre3",
+    "author": "test auteur3",
+    "text": "test3",
+    "categoryid": "60efd83652f56cfc2cfae530",
+    "slug":"test-titre3",
+    "version":{ "title": "test titre3",
+    "author": "test auteur3",
+    "text": "test3",
+    "slug":"test-titre3"}
+        
 }
