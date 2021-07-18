@@ -7,7 +7,9 @@
   width: 10%;
   pointer-events: none;
 }
-
+.home{
+  text-align: initial;
+}
 .cat{
   width: 100%;
 }
