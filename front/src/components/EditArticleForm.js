@@ -22,25 +22,19 @@ function EditArticleForm({ category, articles, setArticles, article }) {
         }
 
         setVersion(prev_version);
-        console.log(prev_version);
-        const dataUpdate = {
-            title: version.title,
-            author: version.author,
-            text: version.text,
-            slug: slugify(version.title)
-        }
-        console.log(dataUpdate);
+        // console.log(prev_version);
+        // const dataUpdate = {
+        //     title: version.title,
+        //     author: version.author,
+        //     text: version.text,
+        //     slug: slugify(version.title)
+        // }
+        // console.log(dataUpdate);
         // console.log(category.slug);
         axios.put('/articles/edit/' + article._id, prev_version)
             .then(response => {
                 window.history.back()
-                // console.log(response.data)
-                // window.location.href = "/categories/" + category.slug;
-                // if (response.data) {
-                    // window.location.href = "/categories/" + category.slug;
-                // }
             })
-
     }
 
     return (

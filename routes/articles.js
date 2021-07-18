@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     })
 })
 
-
 //get articles by category id
 router.get('/:categoryid', (req, res) => {
     articleModel.find(function (err, articles) {
@@ -61,6 +60,19 @@ router.put("/edit/:id", (req, res) => {
         .catch(err => res.status(400).json("Error: " + err))
 });
 
+//delete a version
+router.put("/edit-version/:id", (req, res) => {
+    let versionToDelete = req.body //we set a variable equal to the entire req.body
+    articleModel.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+            $pull: {
+                { version: element }
+            }
+        },
+        { new: true, useFindAndModify: false }
+    )
+});
 
 //delete article
 router.delete("/:id", (req, res) => {
