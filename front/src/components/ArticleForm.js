@@ -7,8 +7,7 @@ function ArticleForm({ category, articles, setArticles }) {
     const [inputTitle, setInputTitle] = useState("");
     const [inputAuthor, setInputAuthor] = useState("");
     const [inputText, setInputText] = useState("");
-    const [version,setVersion]=useState("");
-
+    const [version, setVersion] = useState("");
 
     const submitArticle = (e) => {
         e.preventDefault();
@@ -16,21 +15,21 @@ function ArticleForm({ category, articles, setArticles }) {
             alert('Veuillez entrer un titre')
         } else {
             setVersion({ title: inputTitle, author: inputAuthor, text: inputText })
-            setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id,version:version }])
+            setArticles([...articles, { title: inputTitle, author: inputAuthor, text: inputText, categoryid: category._id, version: version }])
             const recorded = {
                 title: inputTitle,
                 author: inputAuthor,
                 text: inputText,
                 categoryid: category._id,
                 slug: slugify(inputTitle),
-                version:{title: inputTitle,author: inputAuthor,text: inputText,slug: slugify(inputTitle)}
+                version: { title: inputTitle, author: inputAuthor, text: inputText, slug: slugify(inputTitle) }
             }
             axios.post('/articles/new', recorded)
                 .then(response => console.log(response.data))
             setInputTitle('')
             setInputAuthor('')
             setInputText('')
-            window.location.href = "/category/"+category.name;
+            window.location.href = "/category/" + category.name;
         }
     }
 
@@ -53,13 +52,8 @@ function ArticleForm({ category, articles, setArticles }) {
                         <textarea id="text" onChange={(event) => setInputText(event.target.value)} value={inputText} className="form-control"></textarea>
                     </div>
                 </div>
-                {/* <input type="text" id="catID" value={cat._id} className="form-control invisible" /> */}
                 <div className="mb-3 d-flex justify-content-center">
-                    
-                        <button type="submit" className="btn btn-primary" onClick={submitArticle} >Ajouter</button>
-                        {/* : <button type="submit" className="btn btn-primary" >Modifier</button> */}
-                    
-
+                    <button type="submit" className="btn btn-primary" onClick={submitArticle} >Ajouter</button>
                 </div>
             </form>
         </div>

@@ -34,6 +34,7 @@ input{
 textarea{
   /* white-space: pre-line; */
   width: 90%!important;
+  height: 400px;
 }
 .markdown{
   max-height: 400px;

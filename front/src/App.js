@@ -7,8 +7,6 @@ import ArticlesListByCat from './components/ArticlesListByCat';
 import Home from './components/Home';
 import EditArticleForm from './components/EditArticleForm';
 
-
-
 function App() {
   const [elements, setElements] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -50,14 +48,14 @@ function App() {
         <header >
           <img src={logo} className="App-logo" alt="logo" />
           <ul className="nav justify-content-center">
-            <li className="nav-item"><a href="/" className="nav-link">Accueil</a></li>
+            <li className="nav-item"><a href="/home" className="nav-link">Accueil</a></li>
             <li className="nav-item" ><Link to="/categories-list" className="nav-link">Liste</Link></li>
           </ul>
         </header>
         <Switch>
-          {/* <Route path="/home" exact>
+          <Route path="/home" exact>
             <Home/>
-          </Route> */}
+          </Route>
           <Route path="/categories-list" exact>
             <CategoriesList elements={elements} setElements={setElements} />
           </Route>
@@ -77,45 +75,10 @@ function App() {
 
         </Switch>
       </Router>
-      {/* {(slug!="")? <ArticlesListByCat elements={elements} />  : ''} */}
 
     </div>
   );
 }
 
-// class App extends Component {
-//   constructor() {
-//     super();
-//     this.state = { categories: [] };
-//   }
-
-//   componentDidMount() {
-//     fetch('http://localhost:5000/categories/')
-//     // fetch('https://reqres.in/api/users')
-//       .then(response => response.json())
-//       .then(json => this.setState({ categories: json.data }));
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h1>Categories</h1>
-//         {
-//           this.state.categories.length == 0
-//             ? 'Loading users...'
-//             : this.state.categories.map(category => (
-//               // <figure key={category.id}>
-//               //   <img src={category.avatar} />
-//               //   <figcaption>
-//               //     {user.first_name} {user.last_name}
-//               //   </figcaption>
-//               // </figure>
-//               <p>{category.name}</p>
-//             ))
-//         }
-//       </div>
-//     );
-//   }
-// }
 
 export default App;

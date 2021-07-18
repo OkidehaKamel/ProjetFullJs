@@ -1,6 +1,5 @@
 const express = require('express')
 const { useParams } = require('react-router-dom')
-// const { default: Article } = require('../front/src/components/Article')
 const router = express.Router()
 const articleModel = require('../models/articles')
 
@@ -26,18 +25,6 @@ router.get('/:categoryid', (req, res) => {
     })
 })
 
-// //put articles by id
-// router.put('/article/:id', (req, res) => {
-//     articleModel.updateOne(
-//         { "_id": req.params.id },
-//         {
-//             $push: {
-//                 version: prev_version
-//             }
-//         }
-//     )
-// })
-
 //add new article
 router.post('/new', (req, res) => {
     const articles = new articleModel({
@@ -46,7 +33,7 @@ router.post('/new', (req, res) => {
         text: req.body.text,
         categoryid: req.body.categoryid,
         slug: req.body.slug,
-        version:req.body.version
+        version: req.body.version
 
     })
     articles.save()
@@ -58,18 +45,6 @@ router.post('/new', (req, res) => {
         })
 })
 
-// Update for  "mongoose": "^4.11.9",
-// router.put("/:comment_id", function(req, res){
-//     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, comment){
-//         if(err){
-//             console.log(err);
-//             res.render("edit");
-//         } else {
-//             res.redirect("/campgrounds/" + req.params.id);
-//         }
-//     });
-// });
-
 //edit article
 router.put("/edit/:id", (req, res) => {
     let updates = req.body //we set a variable equal to the entire req.body
@@ -80,45 +55,17 @@ router.put("/edit/:id", (req, res) => {
                 version: updates
             }
         },
-        {new: true, useFindAndModify: false}
-        )
-      .then(data => res.json(data))
-      .catch(err => res.status(400).json("Error: " + err))
-  })
-
-//edit article
-// router.post('/edit/:id', (req, res) => {
-    
-//     const article = articleModel.updateOne({
-//         title: req.body.title,
-//         author: req.body.author,
-//         text: req.body.text,
-//         categoryid: req.body.categoryid,
-//         slug: req.body.slug
-//     },
-//     {
-//         where: {_id:req.params.id}
-//     })
-//     // .then(function(data){
-//     //     return data;
-//     // })
-//     // .catch(error =>{
-//     //     return error
-//     // })
-//     // res.json(data);
-//     .then(data => {
-//             res.json(data)
-//         })
-//         .catch(error => {
-//             res.json(error)
-//         })
-// })
+        { new: true, useFindAndModify: false }
+    )
+        .then(data => res.json(data))
+        .catch(err => res.status(400).json("Error: " + err))
+});
 
 
 //delete article
-// router.delete('/delete/:articleid', (req, res) => {
-    
-//     articleModel.deleteOne(req.body.articleid)
-// })
+router.delete("/:id", (req, res) => {
+    articleModel.findByIdAndDelete(req.params.id)
+        .then(() => res.json("donnée supprimée"))
+})
 
 module.exports = router;

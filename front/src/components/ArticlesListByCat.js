@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ArticleForm from './ArticleForm';
 import Article from './Article';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-// function getArticlesByCat(){
-//       fetch('http://localhost:5000/articles/')
-//       .then(response => response.json())
-//       .then(console.log(response.json()));
-// }
 
 function ArticlesListByCat({ elements, category }) {
 
@@ -44,16 +37,5 @@ function ArticlesListByCat({ elements, category }) {
   )
 };
 
-// class ArticlesListByCat extends React.Component {
-//   componentDidMount() {
-//     const apiUrl = 'http://localhost:5000/articles/';
-//     fetch(apiUrl)
-//       .then((response) => response.json())
-//       .then((data) => console.log('This is your data', data));
-//   }
-//   render() {
-//     return <h2>my Component has Mounted, Check the browser 'console' </h2>;
-//   }
-// }
 
 export default ArticlesListByCat;

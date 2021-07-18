@@ -20,8 +20,7 @@ router.get('/:slug',async (req,res)=>{
     })
     if(category==null){
         res.redirect('/')
-    }
-    
+    }    
 })
 
 //get by category id

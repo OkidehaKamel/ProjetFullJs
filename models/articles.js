@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-// const { Article } = require("./DonneeBDD/indexAintegrer");
 
 const Articles = mongoose.model(
   "Articles",
@@ -9,12 +8,6 @@ const Articles = mongoose.model(
     text: String,
     categoryid: String,
     version:[],
-    // categorie: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Categorie"
-    //   }
-    // ],
     slug:String  
   })
 );

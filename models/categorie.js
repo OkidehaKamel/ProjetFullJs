@@ -7,8 +7,4 @@ const categorie =
     slug:String      
   })
 
-  
-  
-// );
-
 module.exports = mongoose.model("Categorie",categorie);
