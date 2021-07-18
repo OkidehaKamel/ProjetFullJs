@@ -38,10 +38,10 @@ function Article({ article }) {
             })
     }
 
-    const deleteVersion = (element) => {
-        axios.put('/articles/edit-version/' + article._id, element)
-        document.location.reload()
-    }
+    // const deleteVersion = (element) => {
+    //     axios.put('/articles/edit-version/' + article._id, element)
+    //     document.location.reload()
+    // }
 
 
     return (
@@ -66,7 +66,7 @@ function Article({ article }) {
                                         <div>
                                             <a href="#" onClick={() => show(archive)} className="mx-2" title="Voir"><FontAwesomeIcon icon={faSearch} /></a>
                                             <a href="#" onClick={() => restore(archive)} className="mx-2" title="Restaurer"><FontAwesomeIcon icon={faDownload} /></a>
-                                            <a href="#" onClick={() => deleteVersion(archive)}className="mx-2" title="Supprimer"><FontAwesomeIcon icon={faTrashAlt} /></a>
+                                            {/* <a href="#" onClick={() => deleteVersion(archive)}className="mx-2" title="Supprimer"><FontAwesomeIcon icon={faTrashAlt} /></a> */}
                                         </div>
                                     </li>
                                 ))

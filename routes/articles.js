@@ -67,7 +67,7 @@ router.put("/edit-version/:id", (req, res) => {
         { _id: req.params.id },
         {
             $pull: {
-                { version: element }
+                 version: versionToDelete 
             }
         },
         { new: true, useFindAndModify: false }
