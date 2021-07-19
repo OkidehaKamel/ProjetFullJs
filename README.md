@@ -34,7 +34,35 @@
 -------------------------Le Projet---------------------------
 -------------------------------------------------------------
 
+Application web en Fullstack JS :  outil de travail collaboratif permettant la création, la
+modification et l’illustration de pages web dans une structure centralisée "Wiki".
 
+Le back-office réalisé en Node.js. 
+
+Base de données mongoDB.
+
+Par défaut la base est vide, il faut créer une catégorie pour initialiser la table "catégories", 
+puis à partir de la catégorie créée, créer les articles correspondant.
+
+Afin de pouvoir structurer individuellement les articles, le contenu de ces derniers sont rentrés par markdow (https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/ pour utilisation ).
+
+Front-office réalisé avec React. 
+
+Utilisation de Axios pour le requêtage de l’api.
+
+-------------------------------------------------------------
+-------------------Fonctionnalités développées---------------
+-------------------------------------------------------------
+- Ajout, modification et suppression d’articles
+
+-  La catégorisation des articles : 
+
+    . Page lisstant toutes les catégories
+
+    . Affichage de la liste des articles correspondants au clic de la catégorie
+  
+- Le versionning :
+  Historisation des versions d’un article, visualisation et restauration d'une version
 
 -------------------------------------------------------------
 -------------------------API---------------------------------
