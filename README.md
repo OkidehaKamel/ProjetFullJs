@@ -57,7 +57,7 @@ Utilisation de Axios pour le requêtage de l’api.
 
 -  La catégorisation des articles : 
 
-    . Page lisstant toutes les catégories
+    . Page listant toutes les catégories
 
     . Affichage de la liste des articles correspondants au clic de la catégorie
   
@@ -82,8 +82,6 @@ Get articles by category id : Method GET '/articles/:categoryid'
 Create article : Method POST '/articles/new'
 
 Edit article by id : Methode PUT '/articles/edit/:id' 
-
-Delete a article version : Methode PUT '/articles/edit-version/:id'
 
 Delete article by id : Methode DELETE '/articles/:id'
 
