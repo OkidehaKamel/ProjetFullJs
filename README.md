@@ -44,7 +44,7 @@ Base de données mongoDB.
 Par défaut la base est vide, il faut créer une catégorie pour initialiser la table "catégories", 
 puis à partir de la catégorie créée, créer les articles correspondant.
 
-Afin de pouvoir structurer individuellement les articles, le contenu de ces derniers sont rentrés par markdow (https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/ pour utilisation ).
+Afin de pouvoir structurer individuellement les articles, les contenus de ces derniers sont rentrés par markdow (https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/ pour utilisation ).
 
 Front-office réalisé avec React. 
 
