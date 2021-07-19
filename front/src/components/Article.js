@@ -9,14 +9,7 @@ import { faTrashAlt } from '@fortawesome/fontawesome-free-solid'
 
 function Article({ article }) {
     var restored = '';
-    // array.push(array.splice(array.indexOf(element), 1)[0]);
-    // colors.push(colors.splice(colors.indexOf('blue'), 1).pop());
     var checkArticle = article.version[article.version.length - 1];
-    // if (article.version.length > 1) {
-    //     checkArticle = article.version.pop()
-    // } else {
-    //     checkArticle = article.version[0]
-    // }
     const [lastVersion, setLastVersion] = useState(checkArticle);
     const version = article.version;
     console.log(version);

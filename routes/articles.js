@@ -46,7 +46,7 @@ router.post('/new', (req, res) => {
 
 //edit article
 router.put("/edit/:id", (req, res) => {
-    let updates = req.body //we set a variable equal to the entire req.body
+    let updates = req.body 
     articleModel.findOneAndUpdate(
         { _id: req.params.id },
         {
@@ -62,7 +62,7 @@ router.put("/edit/:id", (req, res) => {
 
 //delete a version
 router.put("/edit-version/:id", (req, res) => {
-    let versionToDelete = req.body //we set a variable equal to the entire req.body
+    let versionToDelete = req.body 
     articleModel.findOneAndUpdate(
         { _id: req.params.id },
         {

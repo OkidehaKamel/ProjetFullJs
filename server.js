@@ -21,19 +21,16 @@ app.use(express.static('front/build'))
 app.use('/categories',categoryRouter)
 app.use('/articles',articleRouter)
 
-
-// app.get('/api/test',(req,res)=>{
-//     res.send({
-//         msg: 'test get ok'
-//     })
-// })
-
 app.use(express.static(path.join(__dirname,'./front/build/index.html')));
 
 //default page
 app.get('/*',(req,res)=>{
     res.sendFile(path.join(__dirname,'./front/build/index.html'))
 })
+
+const all_routes = require('express-list-endpoints');
+console.log(all_routes(app));
+
 
 
 app.listen(PORT,()=>{

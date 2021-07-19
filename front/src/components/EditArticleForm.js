@@ -3,12 +3,10 @@ import axios from 'axios';
 import slugify from 'react-slugify';
 
 function EditArticleForm({ category, articles, setArticles, article }) {
-    const [version, setVersion] = useState(article.version.pop())
-    // const lastVersion = article.version.pop()
+    const [version, setVersion] = useState(article.version.pop());
     const [inputTitle, setInputTitle] = useState(version.title);
     const [inputAuthor, setInputAuthor] = useState(version.author);
     const [inputText, setInputText] = useState(version.text);
-    // const [articleToEdit, setArticleToEdit]=useState(article);
 
     const submitEditArticle = (e) => {
         e.preventDefault();
@@ -22,15 +20,6 @@ function EditArticleForm({ category, articles, setArticles, article }) {
         }
 
         setVersion(prev_version);
-        // console.log(prev_version);
-        // const dataUpdate = {
-        //     title: version.title,
-        //     author: version.author,
-        //     text: version.text,
-        //     slug: slugify(version.title)
-        // }
-        // console.log(dataUpdate);
-        // console.log(category.slug);
         axios.put('/articles/edit/' + article._id, prev_version)
             .then(response => {
                 window.history.back()

@@ -41,7 +41,6 @@ function App() {
     setArticles(data);
   };
 
-
   return (
     <div className="App container">
       <Router>
@@ -54,6 +53,9 @@ function App() {
         </header>
         <Switch>
           <Route path="/home" exact>
+            <Home/>
+          </Route>
+          <Route path="/" exact>
             <Home/>
           </Route>
           <Route path="/categories-list" exact>
