@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +8,7 @@ import { faTrashAlt } from '@fortawesome/fontawesome-free-solid'
 
 
 function Article({ article }) {
-    var restored = '';
+    
     var checkArticle = article.version[article.version.length - 1];
     const [lastVersion, setLastVersion] = useState(checkArticle);
     const version = article.version;

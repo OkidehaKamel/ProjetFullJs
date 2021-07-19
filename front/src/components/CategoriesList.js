@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import CategoryForm from './CategoryForm';
 
 function CategoriesList({ elements, setElements }) {
-  const [catUrl, setCatUrl] = useState("");
-
+  
   return (
     <div>
       <h2 className="mb-5" >Liste des catégories :</h2>
