@@ -23,10 +23,12 @@
     
   5.- Executer la commande npm install mongoose afin d'installer
       le package de base de donnée
+
+  6.- Executer la commande npm run build s'il n'y a pas de répertoire build
       
-  6.- Executer la commande npm start afin de lancer l'application
+  7.- Executer la commande npm start afin de lancer l'application
   
-  7.- Se rendre sur localhost:5000
+  8.- Se rendre sur localhost:5000
   
 -------------------------------------------------------------
 -------------------------Le Projet---------------------------
@@ -38,12 +40,23 @@
 -------------------------API---------------------------------
 -------------------------------------------------------------
 Get all categories : Method GET '/categories'
+
 Get category by slug : Method GET '/categories/:slug'
+
 Get category by id : Method GET '/categories/:id'  
-Create category : Method POST '/categories/new'     
+
+Create category : Method POST '/categories/new'    
+
 Get all articles : Method GET '/articles'
+
 Get articles by category id : Method GET '/articles/:categoryid'
+
 Create article : Method POST '/articles/new'
-Edit article by id : Methode PUT '/articles/edit/:id'      
+
+Edit article by id : Methode PUT '/articles/edit/:id' 
+
 Delete a article version : Methode PUT '/articles/edit-version/:id'
+
 Delete article by id : Methode DELETE '/articles/:id'
+
+
