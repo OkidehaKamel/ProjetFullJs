@@ -37,15 +37,13 @@
 -------------------------------------------------------------
 -------------------------API---------------------------------
 -------------------------------------------------------------
-HTTP Method	  URI				             Opération CRUD			      Vue cible
------------------------------------------------------------------------------------------------------------------------------------
-GET		  '/categories'			            Get all categories
-GET	  	'/categories/:slug'           Get category by slug
-GET	  	'/categories/:id'             Get category by id      
-POST    '/categories/new'             Create category 
-GET     '/articles'                   Get all articles
-GET     '/articles/:categoryid'       Get articles by category id
-POST    '/articles/new'               Create article
-PUT     '/articles/edit/:id'          Edit article by id
-PUT     '/articles/edit-version/:id'  Delete a article version
-DELETE  '/articles/:id'               Delete article by id
+Get all categories : Method GET '/categories'
+Get category by slug : Method GET '/categories/:slug'
+Get category by id : Method GET '/categories/:id'  
+Create category : Method POST '/categories/new'     
+Get all articles : Method GET '/articles'
+Get articles by category id : Method GET '/articles/:categoryid'
+Create article : Method POST '/articles/new'
+Edit article by id : Methode PUT '/articles/edit/:id'      
+Delete a article version : Methode PUT '/articles/edit-version/:id'
+Delete article by id : Methode DELETE '/articles/:id'
