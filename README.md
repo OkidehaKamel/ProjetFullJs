@@ -32,3 +32,20 @@
 -------------------------Le Projet---------------------------
 -------------------------------------------------------------
 
+
+
+-------------------------------------------------------------
+-------------------------API---------------------------------
+-------------------------------------------------------------
+HTTP Method	  URI				             Opération CRUD			      Vue cible
+-----------------------------------------------------------------------------------------------------------------------------------
+GET		  '/categories'			            Get all categories
+GET	  	'/categories/:slug'           Get category by slug
+GET	  	'/categories/:id'             Get category by id      
+POST    '/categories/new'             Create category 
+GET     '/articles'                   Get all articles
+GET     '/articles/:categoryid'       Get articles by category id
+POST    '/articles/new'               Create article
+PUT     '/articles/edit/:id'          Edit article by id
+PUT     '/articles/edit-version/:id'  Delete a article version
+DELETE  '/articles/:id'               Delete article by id
