@@ -28,8 +28,8 @@ app.get('/*',(req,res)=>{
     res.sendFile(path.join(__dirname,'./front/build/index.html'))
 })
 
-const all_routes = require('express-list-endpoints');
-console.log(all_routes(app));
+// const all_routes = require('express-list-endpoints');
+// console.log(all_routes(app));
 
 
 
