@@ -21,14 +21,17 @@
   4.- Se rendre sur le dossier ProjetFullJs en utilisant la 
       commande cd
     
-  5.- Executer la commande npm install mongoose afin d'installer
-      le package de base de donnée
+  5.- Executer la commande npm install afin d'installer
+      le répertoire node_modules pour le back end (nodeJs)
 
-  6.- Executer la commande npm run build s'il n'y a pas de répertoire build
+  6.- Se rendre dans le dossier front en faisant un cd front, puis exécuter npm install
+      afin d'installer le répertoire node_modules pour le front end (react)
+
+  7.- Retourner sur le répertoire racine ProjetFullJs avec cd ..
       
-  7.- Executer la commande npm start afin de lancer l'application
+  8.- Executer la commande npm start afin de lancer l'application
   
-  8.- Se rendre sur localhost:5000
+  9.- Se rendre sur localhost:5000
   
 -------------------------------------------------------------
 -------------------------Le Projet---------------------------
@@ -49,6 +52,8 @@ Afin de pouvoir structurer individuellement les articles, les contenus de ces de
 Front-office réalisé avec React. 
 
 Utilisation de Axios pour le requêtage de l’api.
+
+A chaque modification d'un article, la version précédente est sauvegardée, il est possible de la visualiser ou de la restaurer.
 
 -------------------------------------------------------------
 -------------------Fonctionnalités développées---------------

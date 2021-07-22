@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GitKmel/ProjetFullStackJS.git"
+    "url": "git+https://github.com/OkidehaKamel/ProjetFullJs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GitKmel/ProjetFullStackJS/issues"
+    "url": "https://github.com/OkidehaKamel/ProjetFullJs/issues"
   },
-  "homepage": "https://github.com/GitKmel/ProjetFullStackJS#readme",
+  "homepage": "https://github.com/OkidehaKamel/ProjetFullJs/#README.md",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
